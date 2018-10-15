@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Product Id="1db4bde7-5ee2-4a98-b3f6-e6c5bd3729ea" Name="EmbeddedUI_Setup" Language="1033" Codepage="Windows-1252" Version="1.0.0.0" UpgradeCode="1db4bde7-5ee2-4a98-b3f6-e6c5ad3729e9" Manufacturer="m.vannucci">
+    <Package InstallerVersion="200" Compressed="yes" SummaryCodepage="Windows-1252" Languages="1033" />
+    <Media Id="1" Cabinet="EmbeddedUI_Setup.cab" EmbedCab="yes" />
+
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder" Name="ProgramFilesFolder">
+        <Directory Id="ProgramFilesFolder.My_Company" Name="My Company">
+          <Directory Id="INSTALLDIR" Name="My Product">
+
+            <Component Id="Component.readme.txt_1240382565" Guid="1db4bde7-5ee2-4a98-b3f6-e6c543176b12">
+              <File Id="readme.txt_1240382565" Source="readme.txt" />
+            </Component>
+
+          </Directory>
+        </Directory>
+      </Directory>
+    </Directory>
+
+    <UI>
+      <EmbeddedUI Id="EmbeddedUI_WPF.exe" SourceFile="EmbeddedUI_WPF.CA.dll" />
+    </UI>
+
+    <UIRef Id="WixUI_ErrorProgressText" />
+
+    <Feature Id="Complete" Title="Complete" Absent="allow" Level="1">
+      <ComponentRef Id="Component.readme.txt_1240382565" />
+    </Feature>
+
+  </Product>
+</Wix>
+
